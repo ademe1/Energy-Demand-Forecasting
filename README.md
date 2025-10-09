@@ -1,7 +1,6 @@
 
 # ⚡ Energy Demand Forecasting | Data Meets Energy  
-
-👋🏾 Hi, I’m **Arame** — an energy engineer turned data explorer who believes every kilowatt tells a story.  
+ 
 This project blends my passion for **energy systems** and **data analytics** to forecast energy demand using real-world methods and clean storytelling.
 
 ---
