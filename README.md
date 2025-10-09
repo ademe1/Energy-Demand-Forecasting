@@ -21,7 +21,7 @@ This project blends my passion for **energy systems** and **data analytics** to 
 
 ## 🌍 Project Overview
 
-This repository demonstrates how **data science** and **forecasting models** can help us understand and anticipate **energy consumption patterns** — enabling better planning, cost savings, and sustainability.
+This repository demonstrates how **data science** and **forecasting models** can help us understand and anticipate **energy consumption patterns**, enabling better planning, cost savings, and sustainability.
 
 🔹 **Goal:** Forecast monthly energy demand within ±5% accuracy  
 🔹 **Data:** 2018–2024 monthly dataset (temperature, price, holiday effects)  
