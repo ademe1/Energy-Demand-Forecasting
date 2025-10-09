@@ -15,7 +15,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/username/repo-name)
 ![GitHub language count](https://img.shields.io/github/languages/count/username/repo-name)
 
-This project blends my passion for **energy systems** and **data analytics** to forecast energy demand using real-world methods and clean storytelling.
+This project blends my passion for **energy systems** and **data analytics** to forecast energy demand using real world methods and clean storytelling.
 
 ---
 
