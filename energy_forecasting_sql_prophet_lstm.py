@@ -1,4 +1,4 @@
-# Energy Forecasting via SQL + Prophet + LSTM (optional)
+# Energy Forecasting via SQL + Prophet + LSTM
 import os, sqlite3, warnings
 warnings.filterwarnings("ignore")
 
@@ -10,7 +10,6 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 
-# Optional imports
 have_statsmodels = True
 try:
     from statsmodels.tsa.statespace.sarimax import SARIMAX
@@ -85,7 +84,7 @@ linreg = LinearRegression().fit(X_train_sc, y_train)
 linreg_pred = linreg.predict(X_test_sc)
 res_rows.append(["LinearRegression", mean_absolute_error(y_test, linreg_pred), mape(y_test, linreg_pred)])
 
-# SARIMAX (optional)
+# SARIMAX
 sarimax_pred = None
 if have_statsmodels:
     try:
@@ -102,7 +101,7 @@ if have_statsmodels:
     except Exception:
         sarimax_pred = None
 
-# Prophet (optional)
+# Prophet
 prophet_pred = None
 if have_prophet:
     try:
@@ -117,19 +116,19 @@ if have_prophet:
     except Exception:
         prophet_pred = None
 
-# LSTM (optional)
+# LSTM 
 lstm_pred = None
 if have_tf:
     try:
-        # Build supervised dataset using lag_1..lag_12
+        
         sup_cols = [c for c in df_fe.columns if c.startswith("lag_")]
         sup = df_fe.dropna().copy()
         X_all = sup[sup_cols].values.astype(np.float32)
         y_all = sup["energy_mwh"].values.astype(np.float32)
-        # train/test split aligned with test_horizon
+       
         X_tr, X_te = X_all[:-test_horizon], X_all[-test_horizon:]
         y_tr, y_te = y_all[:-test_horizon], y_all[-test_horizon:]
-        # reshape to [samples, timesteps, features]; here timesteps=1
+       
         X_tr_r = X_tr.reshape((X_tr.shape[0], 1, X_tr.shape[1]))
         X_te_r = X_te.reshape((X_te.shape[0], 1, X_te.shape[1]))
         model = Sequential([
@@ -143,13 +142,12 @@ if have_tf:
     except Exception:
         lstm_pred = None
 
-# Save metrics
 results = pd.DataFrame(res_rows, columns=["Model","MAE","MAPE_percent"])
 os.makedirs("/mnt/data/outputs", exist_ok=True)
 results.to_csv("/mnt/data/outputs/results_sql_prophet_lstm.csv", index=False)
 
 # -----------------
-# Tableau-ready export (long format)
+# Tableau
 # -----------------
 def to_long(model_name, dates, actual, pred, split):
     return pd.DataFrame({
@@ -157,11 +155,11 @@ def to_long(model_name, dates, actual, pred, split):
         "actual_mwh": actual,
         "forecast_mwh": pred,
         "model": model_name,
-        "split": split  # "test" or "future"
+        "split": split 
     })
 
 long_frames = []
-# test set frames
+
 long_frames.append(to_long("SeasonalNaive", test_df["date"], y_test, seasonal_naive_pred, "test"))
 long_frames.append(to_long("LinearRegression", test_df["date"], y_test, linreg_pred, "test"))
 if sarimax_pred is not None:
@@ -172,10 +170,9 @@ if lstm_pred is not None:
     long_frames.append(to_long("LSTM", test_df["date"], y_test, lstm_pred, "test"))
 tableau_test = pd.concat(long_frames, ignore_index=True)
 
-# simple future forecast using best of available (lowest MAPE on test)
 best_row = results.sort_values("MAPE_percent").iloc[0]
 champion = best_row["Model"]
-# for simplicity, reuse Linear Regression for multi-step future forecast; can extend similarly for others
+
 future_steps = 12
 hist = df_fe.copy()
 
@@ -209,7 +206,6 @@ for i in range(1, future_steps+1):
                         "month_sin": month_sin, "month_cos": month_cos})
 future_df = pd.DataFrame(future_rows)
 
-# recursive LR forecast
 future_preds = []
 for i in range(len(future_df)):
     hist = pd.concat([hist, future_df.iloc[i:i+1]], ignore_index=True)
@@ -230,7 +226,6 @@ tableau_future = pd.DataFrame({
 tableau_long = pd.concat([tableau_test, tableau_future], ignore_index=True)
 tableau_long.to_csv("/mnt/data/outputs/tableau_forecasts_long.csv", index=False)
 
-# Save quick note
 with open("/mnt/data/outputs/CHAMPION.txt", "w") as f:
     f.write(f"Champion by test MAPE: {champion}\n")
     f.write(results.sort_values('MAPE_percent').to_string(index=False))
