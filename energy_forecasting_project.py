@@ -10,7 +10,7 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 
-# Optional statsmodels (SARIMAX)
+# (SARIMAX)
 have_statsmodels = True
 try:
     from statsmodels.tsa.statespace.sarimax import SARIMAX
@@ -90,7 +90,7 @@ linreg_pred = linreg.predict(X_test_sc)
 linreg_mae = mean_absolute_error(y_test, linreg_pred)
 linreg_mape = mape(y_test, linreg_pred)
 
-# SARIMAX (optional)
+# SARIMAX
 sarimax_mae = None
 sarimax_mape = None
 sarimax_pred = None
@@ -139,7 +139,7 @@ plt.tight_layout()
 plt.savefig("/mnt/data/figures/model_test_predictions.png")
 plt.close()
 
-# Rolling 12-month forecast using champion (SARIMAX if available, else Linear Regression)
+# Rolling 12-month forecast using champion 
 champion = "SARIMAX" if sarimax_pred is not None else "LinearRegression"
 hist = df_fe.copy()
 
