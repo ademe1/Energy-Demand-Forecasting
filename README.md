@@ -30,3 +30,13 @@ SELECT *
 FROM v_energy_monthly
 WHERE year = 2024
 ORDER BY month;
+
+
+| Model               | MAE      | MAPE (%) |
+| ------------------- | -------- | -------- |
+| Seasonal Naive      | 10.12    | 8.7      |
+| Linear Regression   | 6.21     | 5.3      |
+| SARIMAX             | 5.98     | 5.1      |
+| Prophet             | 5.55     | 4.9      |
+| **LSTM (Champion)** | **5.26** | **4.6**  |
+
