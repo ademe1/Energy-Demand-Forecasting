@@ -1,0 +1,6 @@
+Model,MAE,MAPE_percent
+SeasonalNaive,10.12,8.7
+LinearRegression,6.21,5.3
+SARIMAX,5.98,5.1
+Prophet,5.55,4.9
+LSTM,5.26,4.6
