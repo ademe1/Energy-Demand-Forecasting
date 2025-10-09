@@ -31,7 +31,12 @@ FROM v_energy_monthly
 WHERE year = 2024
 ORDER BY month;
 
+---
 
+## 🚀 Key Results
+
+✅ Target: ±5% forecasting accuracy
+✅ Achieved: 4.6% MAPE with LSTM (Champion Model)
 | Model               | MAE      | MAPE (%) |
 | ------------------- | -------- | -------- |
 | Seasonal Naive      | 10.12    | 8.7      |
