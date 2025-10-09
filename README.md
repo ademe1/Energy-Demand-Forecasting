@@ -1,6 +1,21 @@
-
 # ⚡ Energy Demand Forecasting | Data Meets Energy  
- 
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![SQL](https://img.shields.io/badge/Database-SQLite-lightgrey?logo=sqlite)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-TensorFlow%20%7C%20Prophet-orange?logo=tensorflow)
+![Visualization](https://img.shields.io/badge/Visualization-Tableau-blueviolet?logo=tableau)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Built%20with%20Love](https://img.shields.io/badge/Built%20with-%E2%9D%A4%EF%B8%8F-red)
+
+<!-- Replace `username` and `repo-name` below with your actual GitHub handle and repository name -->
+![GitHub stars](https://img.shields.io/github/stars/username/repo-name?style=social)
+![GitHub forks](https://img.shields.io/github/forks/username/repo-name?style=social)
+![GitHub issues](https://img.shields.io/github/issues/username/repo-name)
+![GitHub last commit](https://img.shields.io/github/last-commit/username/repo-name)
+![GitHub repo size](https://img.shields.io/github/repo-size/username/repo-name)
+![GitHub language count](https://img.shields.io/github/languages/count/username/repo-name)
+
+👋🏾 Hi, I’m **Arame** — an energy engineer turned data explorer who believes every kilowatt tells a story.  
 This project blends my passion for **energy systems** and **data analytics** to forecast energy demand using real-world methods and clean storytelling.
 
 ---
@@ -143,4 +158,5 @@ Through projects like this, I aim to use analytics to shape **a smarter, greener
 
 > ⚡ *Because every watt counts — and every insight can power change.*
 ```
+
 
