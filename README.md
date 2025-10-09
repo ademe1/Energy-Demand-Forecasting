@@ -77,27 +77,27 @@ Insight  LSTM captures subtle lag relationships and seasonal peaks better than t
 ## 📈 Visual results
 
 ### 1 Actual versus predicted on test set
-![Test Predictions](figures/model_test_predictions.png)
+![Test Predictions](model_test_predictions.png)
 
 ### 2 Twelve month future forecast
-![Future Forecast](figures/model_future_forecast.png)
+![Future Forecast](model_future_forecast.png)
 
 ---
 
 ## 📦 Outputs and direct links
 
 Metrics by model  
-* [`outputs/results_sql_prophet_lstm.csv`](outputs/results_sql_prophet_lstm.csv)
+* [`outputs/results_sql_prophet_lstm.csv`](results_sql_prophet_lstm.csv)
 
 Tableau ready long format  
-* [`outputs/tableau_forecasts_long.csv`](outputs/tableau_forecasts_long.csv)
+* [`outputs/tableau_forecasts_long.csv`](tableau_forecasts_long.csv)
 
 Champion summary  
-* [`outputs/CHAMPION.txt`](outputs/CHAMPION.txt)
+* [`outputs/CHAMPION.txt`](CHAMPION.txt)
 
 LSTM specific files  
-* Test predictions  [`outputs/lstm_test_predictions.csv`](outputs/lstm_test_predictions.csv)  
-* Future predictions  [`outputs/lstm_future_predictions.csv`](outputs/lstm_future_predictions.csv)
+* Test predictions  [`outputs/lstm_test_predictions.csv`](lstm_test_predictions.csv)  
+* Future predictions  [`outputs/lstm_future_predictions.csv`](lstm_future_predictions.csv)
 
 ---
 
