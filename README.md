@@ -23,10 +23,10 @@ This project forecasts monthly energy demand using classical models and modern M
 
 This repository shows how forecasting models help anticipate consumption patterns and support planning cost control and sustainability
 
-* Goal  Forecast monthly energy demand within ±5 percent accuracy  
-* Data  2018 to 2024 monthly features temperature price calendar  
-* Models  Seasonal Naive  Linear Regression  SARIMAX  Prophet  LSTM  
-* Stack  SQL  Python  Tableau
+* Goal:  Forecast monthly energy demand within ±5 percent accuracy  
+* Data:  2018 to 2024 monthly features temperature price calendar  
+* Models:  Seasonal Naive  Linear Regression  SARIMAX  Prophet  LSTM  
+* Stack:  SQL  Python  Tableau
 
 ---
 
